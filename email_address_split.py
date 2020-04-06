@@ -1,12 +1,16 @@
 
+
+# import regular expression lib
 import re
 
 class string_mods:
-    
+    # global vars
     def __init__(self):
         #self.email = email_raw or None
         self.email = ''
     
+    # This method processes the input string, removing the dots from the email name if there are any
+    # Will throw custom excpetion if input email cant be split on at sign
     def remove_dot_from_name(self):
         try:
             input_string_array = self.email.split('@')
@@ -17,15 +21,14 @@ class string_mods:
         except:
             print("hmm, that doesnt look like a normal email address...")
             return(self.email)
-    
+    # This method asks user for input and sets default if they dont enter a string.
     def set_email(self):
         self.email = input("Input email address with dot name: ") or None
         if self.email is None:
             self.email = 'max.perez@gmail.com'
             
             
-# get email address from user or use default
-#default_email = ''
+# call the object, and prompt the user.
 str1 = string_mods()
 str1.set_email()
 print("email address entered is " + str1.email)
